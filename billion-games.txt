@@ -1,0 +1,84 @@
+Finished in 757.848 seconds
+
+1000000000 total games
+492922119 total wins
+
+666660912 "magic" games
+270700457 "magic" wins
+
+Magic win distribution:
+Roll 04 - 27783047/83333223
+Roll 05 - 44447067/111104120
+Roll 06 - 63125861/138899609
+Roll 08 - 63118655/138878820
+Roll 09 - 44450661/111118323
+Roll 10 - 27775166/83326817
+
+Roll count distribution:
+01 rolls - 333339088
+02 rolls - 188275774
+03 rolls - 134769989
+04 rolls - 96570067
+05 rolls - 69260149
+06 rolls - 49709930
+07 rolls - 35734215
+08 rolls - 25698159
+09 rolls - 18494723
+10 rolls - 13329804
+11 rolls - 9618846
+12 rolls - 6942355
+13 rolls - 5012341
+14 rolls - 3630324
+15 rolls - 2627690
+16 rolls - 1906502
+17 rolls - 1383069
+18 rolls - 1004883
+19 rolls - 729653
+20 rolls - 530315
+21 rolls - 385763
+22 rolls - 281313
+23 rolls - 205030
+24 rolls - 150001
+25 rolls - 109204
+26 rolls - 80278
+27 rolls - 58508
+28 rolls - 42769
+29 rolls - 31488
+30 rolls - 23135
+31 rolls - 17052
+32 rolls - 12524
+33 rolls - 9350
+34 rolls - 6630
+35 rolls - 4967
+36 rolls - 3682
+37 rolls - 2676
+38 rolls - 2015
+39 rolls - 1509
+40 rolls - 1068
+41 rolls - 807
+42 rolls - 593
+43 rolls - 442
+44 rolls - 344
+45 rolls - 231
+46 rolls - 192
+47 rolls - 135
+48 rolls - 132
+49 rolls - 59
+50 rolls - 51
+51 rolls - 46
+52 rolls - 36
+53 rolls - 23
+54 rolls - 21
+55 rolls - 12
+56 rolls - 12
+57 rolls - 9
+58 rolls - 6
+59 rolls - 3
+60 rolls - 1
+61 rolls - 2
+62 rolls - 1
+63 rolls - 1
+64 rolls - 1
+65 rolls - 1
+66 rolls - 0
+67 rolls - 1

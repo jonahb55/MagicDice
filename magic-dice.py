@@ -1,5 +1,6 @@
 import multiprocessing as mp
 import random
+import time
 import math
 
 
@@ -9,7 +10,7 @@ def roll():
 
 
 # Play a series of games and return the results
-def play_series(game_count, queue):
+def play_series(print_output, game_count, queue):
     results = {
         "total_win_count": 0,
         "magic_game_count": {
@@ -59,19 +60,26 @@ def play_series(game_count, queue):
             results["roll_count_distribution"].append(0)
         results["roll_count_distribution"][len(rolls)] += 1
 
+        # Print log of game
+        if print_output:
+            print(",".join([str(x) for x in rolls]) +
+                  " - " + ("W" if win else "L"))
+
     # Return final results
     queue.put(results)
 
 
 # Main code
 if __name__ == "__main__":
+    # Detect core count
+    thread_count = mp.cpu_count()
+    print(str(thread_count) + " cores detected")
+
+    # Get settings
     total_game_count = int(input("How many games? "))
+    print_output = input("Print output? (slower) ") == "y"
 
     # Divide games between threads
-    core_count = mp.cpu_count()
-    thread_count = core_count * 4
-    print("Using " + str(thread_count) +
-          " threads (" + str(core_count) + " cores detected)")
     thread_game_counts = [
         math.floor(total_game_count / thread_count)] * thread_count
     remaining_game_count = total_game_count - sum(thread_game_counts)
@@ -80,9 +88,10 @@ if __name__ == "__main__":
 
     # Start threads
     queue = mp.Queue()  # Queue for returning results from each thread
+    start_time = time.time()
     for i in range(thread_count):
         process = mp.Process(target=play_series,
-                             args=(thread_game_counts[i], queue))
+                             args=(print_output, thread_game_counts[i], queue))
         process.start()
 
     # Record results
@@ -107,6 +116,7 @@ if __name__ == "__main__":
     for i in range(thread_count):
         result = queue.get()
 
+        # Compile results from all threads
         total_win_count += result["total_win_count"]
         for magic, count in result["magic_game_count"].items():
             magic_game_count[magic] += count
@@ -116,10 +126,13 @@ if __name__ == "__main__":
             if len(roll_count_distribution) <= f:
                 roll_count_distribution.append(0)
             roll_count_distribution[f] += result["roll_count_distribution"][f]
+    end_time = time.time()
 
     # Print results
     print("-------------------------")
-
+    print("Finished in " +
+          str(round((end_time - start_time) * 1000) / 1000) + " seconds")
+    print()
     print(str(total_game_count) + " total games")
     print(str(total_win_count) + " total wins")
     print()
