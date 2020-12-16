@@ -3,14 +3,20 @@ import random
 import time
 import math
 
+# Storing all possible rolls greatly improves performance
+normal_rolls = [2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7,
+                7, 7, 7, 7, 8, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 11, 11, 12]
+trick_rolls = [2, 3, 4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7,
+               7, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 12]
+
 
 # Roll two dice and get the sum
-def roll():
-    return random.randint(1, 6) + random.randint(1, 6)
+def roll(trick_die):
+    return random.choice(trick_rolls if trick_die else normal_rolls)
 
 
 # Play a series of games and return the results
-def play_series(print_output, game_count, queue):
+def play_series(game_count, trick_die, print_output, queue):
     results = {
         "total_win_count": 0,
         "magic_game_count": {
@@ -35,16 +41,16 @@ def play_series(print_output, game_count, queue):
     # Loop through each game
     for i in range(game_count):
         # Play the game!
-        rolls = [roll()]
+        rolls = [roll(trick_die)]
         if rolls[0] == 7 or rolls[0] == 11:
             win = True
         elif rolls[0] == 2 or rolls[0] == 3 or rolls[0] == 12:
             win = False
         else:
             results["magic_game_count"][rolls[0]] += 1
-            rolls.append(roll())
+            rolls.append(roll(trick_die))
             while rolls[-1] != 7 and rolls[-1] != rolls[0]:
-                rolls.append(roll())
+                rolls.append(roll(trick_die))
             if rolls[-1] == 7:
                 win = False
             else:
@@ -77,6 +83,7 @@ if __name__ == "__main__":
 
     # Get settings
     total_game_count = int(input("How many games? "))
+    trick_die = input("Use trick die? ") == "y"
     print_output = input("Print output? (slower) ") == "y"
 
     # Divide games between threads
@@ -91,7 +98,7 @@ if __name__ == "__main__":
     start_time = time.time()
     for i in range(thread_count):
         process = mp.Process(target=play_series,
-                             args=(print_output, thread_game_counts[i], queue))
+                             args=(thread_game_counts[i], trick_die, print_output, queue))
         process.start()
 
     # Record results
@@ -132,6 +139,7 @@ if __name__ == "__main__":
     print("-------------------------")
     print("Finished in " +
           str(round((end_time - start_time) * 1000) / 1000) + " seconds")
+    print(("Trick" if trick_die else "Normal") + " die")
     print()
     print(str(total_game_count) + " total games")
     print(str(total_win_count) + " total wins")

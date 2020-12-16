@@ -1,0 +1,93 @@
+Trick die
+
+1000000000 total games
+525500471 total wins
+
+666687479 "magic" games
+275517351 "magic" wins
+
+Magic win distribution:
+Roll 04 - 13892007/55554182
+Roll 05 - 27775430/83308690
+Roll 06 - 63126870/138887600
+Roll 08 - 63132422/138894720
+Roll 09 - 63146152/138933285
+Roll 10 - 44444470/111109002
+
+Roll count distribution:
+01 rolls - 333312521
+02 rolls - 191364437
+03 rolls - 135956487
+04 rolls - 96694963
+05 rolls - 68849242
+06 rolls - 49110874
+07 rolls - 35091670
+08 rolls - 25093947
+09 rolls - 17989093
+10 rolls - 12910056
+11 rolls - 9278182
+12 rolls - 6686049
+13 rolls - 4828456
+14 rolls - 3485234
+15 rolls - 2523381
+16 rolls - 1833185
+17 rolls - 1333977
+18 rolls - 971727
+19 rolls - 709192
+20 rolls - 518505
+21 rolls - 381058
+22 rolls - 279537
+23 rolls - 206256
+24 rolls - 151403
+25 rolls - 112532
+26 rolls - 83074
+27 rolls - 61768
+28 rolls - 46412
+29 rolls - 34305
+30 rolls - 25474
+31 rolls - 19027
+32 rolls - 14351
+33 rolls - 10514
+34 rolls - 8150
+35 rolls - 6113
+36 rolls - 4516
+37 rolls - 3431
+38 rolls - 2629
+39 rolls - 1956
+40 rolls - 1511
+41 rolls - 1098
+42 rolls - 938
+43 rolls - 633
+44 rolls - 489
+45 rolls - 372
+46 rolls - 301
+47 rolls - 232
+48 rolls - 197
+49 rolls - 119
+50 rolls - 118
+51 rolls - 73
+52 rolls - 48
+53 rolls - 41
+54 rolls - 41
+55 rolls - 28
+56 rolls - 21
+57 rolls - 14
+58 rolls - 10
+59 rolls - 8
+60 rolls - 7
+61 rolls - 7
+62 rolls - 3
+63 rolls - 3
+64 rolls - 1
+65 rolls - 0
+66 rolls - 0
+67 rolls - 0
+68 rolls - 1
+69 rolls - 0
+70 rolls - 1
+71 rolls - 0
+72 rolls - 0
+73 rolls - 0
+74 rolls - 0
+75 rolls - 0
+76 rolls - 1
